@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<h2>Loca</h2>
+<p>Como dice la canción: "Me gustas así de loca e inestable y caprichosa". Me encanta toda tu existencia. Le agradezco a Diosito por ponerte en mi camino. No sabía qué era el amor hasta que llegaste tú.
+
+
+Tu existencia es algo que vale oro y es algo que agradezco y por lo cual este día es tan importante para mí, porque es un día más de existencia de esta hermosa mujer a la que amo con todo mi ser y con todas mis fuerzas. Es lo mejor tener a mi "ojos de luna" a mi lado. ¡Mi día favorito es este!
+
+
+Te amo.</p>
+<button class="btn" onclick="goToTab(4)">Siguiente</button>
+</div>
+
+
+<div id="tab4" class="tab">
+<h2>Otra pantalla extra 💖</h2>
+<p>También puedes personalizar esta.</p>
+<button class="btn" onclick="goToTab(5)">Siguiente</button>
+</div>
+
+
+<!-- TAB 5: Pastel nuevo y funcional -->
+<div id="tab5" class="tab">
+<div class="cake-screen">
+<div class="cake-title">🍰 HAPPY DAY BANANA</div>
+
+
+<div class="cake-wrap" id="cakeWrap">
+<div class="cake">
+<div class="candle"><div class="flame on"></div></div>
+<div class="candle"><div class="flame on"></div></div>
+<div class="candle"><div class="flame on"></div></div>
+<div class="candle"><div class="flame on"></div></div>
+<div class="candle"><div class="flame on"></div></div>
+<div class="candle"><div class="flame on"></div></div>
+<div class="candle"><div class="flame on"></div></div>
+<div class="top-layer"></div>
+<div class="middle-layer"></div>
+<div class="bottom-layer"></div>
+</div>
+</div>
+
+
+<div style="margin-top:10px;">
+<button class="btn" onclick="extinguirVelas()">Apagar velas</button>
+<button class="btn" style="margin-left:10px;" onclick="goToTab(6)">Siguiente</button>
+</div>
+
+
+</div>
+</div>
+
+
+<div id="tab6" class="tab">
+<h1>FELIZ CUMPLEAÑOS ALE LINDA,<br>OJOS DE LUNA 🎉❤️</h1>
+<p class="final-text">
+Hoy no solo es tu cumpleaños, es también el día en que el universo<br>
+tuvo la gran idea de regalarle al mundo tu presencia.<br><br>
+Tu sonrisa, tu forma de mirar, tu forma de ser… .<br>
+han hecho que todo tenga más sentido desde que te cruzaste en mi vida. 🌌💫
+</p>
+</div>
+
+
+</div>
+</div>
+
+
+<!-- fondo elementos: corazones y confeti -->
+<div class="hearts" id="hearts"></div>
+
+
+<!-- audio de aplausos (se reproduce cuando se apagan las velas) -->
+<audio id="applauseAudio" preload="auto">
+<source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f63fd1b21.mp3?filename=applause-44763.mp3" type="audio/mp3">
+</audio>
+
+
+<script src="script.js"></script>
+</body>
+</html>

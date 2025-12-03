@@ -1,213 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Sorpresa sofis flor</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      font-family: "Poppins", sans-serif;
-      overflow: hidden;
-    }
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Carta Interactiva - Feliz Cumpleaños</title>
 
-    .pantalla {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 1s ease-in-out;
-    }
+<link rel="stylesheet" href="style.css">
 
-    .pantalla.activa {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* Animación texto */
-    .texto {
-      font-size: 28px;
-      font-weight: 600;
-      opacity: 0;
-      animation: aparecer 2s ease forwards;
-    }
-
-    @keyframes aparecer {
-      0% { opacity: 0; transform: translateY(20px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Botón */
-    .btn {
-      margin-top: 40px;
-      padding: 12px 24px;
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 16px;
-      font-weight: bold;
-      background: #fff3b0;
-      color: #6a4c93;
-      transition: all 0.3s;
-    }
-
-    .btn:hover {
-      background: #ffe066;
-      transform: scale(1.05);
-    }
-
-    /* Pantalla 1 */
-    #pantalla1 {
-      background: linear-gradient(to bottom, #fceabb, #f8b500);
-      color: #4a2c2a;
-      text-align: center;
-    }
-
-    /* Pantalla 2 */
-    #pantalla2 {
-      background: linear-gradient(to bottom, #e5989b, #b56576);
-      color: #f5f5dc;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* Pantalla 3 (flor) */
-    #pantalla3 {
-      background: linear-gradient(to top, #c8e6c9, #fffde7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-
-    svg {
-      width: 300px;
-      height: 400px;
-      animation: balanceo 4s ease-in-out infinite;
-      transform-origin: bottom center;
-    }
-
-    @keyframes balanceo {
-      0% { transform: rotate(0deg); }
-      25% { transform: rotate(3deg); }
-      50% { transform: rotate(0deg); }
-      75% { transform: rotate(-3deg); }
-      100% { transform: rotate(0deg); }
-    }
-  </style>
 </head>
 <body>
-  <!-- Pantalla 1 -->
-  <div class="pantalla activa" id="pantalla1">
-    <p class="texto">Hola a la mejor diseñadora gráfica del mundo ✨</p>
-    <button class="btn" onclick="mostrarPantalla(2)">Siguiente ➡</button>
+
+  <!-- 🎁 INICIO (nuevo) – toques para abrir el regalo -->
+  <div class="telon" id="telon">
+    <div class="gift-intro">
+        <p class="gift-text">Toca para abrir tu regalo 🎁</p>
+        <div class="touch-effect" id="touchEffect"></div>
+    </div>
   </div>
 
-  <!-- Pantalla 2 -->
-  <div class="pantalla" id="pantalla2">
-    <p class="texto">Te mereces esta y todas las flores amarillas del mundo 🌼</p>
-    <button class="btn" onclick="mostrarPantalla(3)">Siguiente ➡</button>
+
+  <div class="app">
+    <div class="card">
+
+      <!-- TABS -->
+      <div id="tab1" class="tab active">
+        <h1>🎧 Ponte tus audífonos</h1>
+        <p>Lo que estás por ver... es solo para ti ❤️</p>
+        <button class="btn" onclick="goToTab(2)">Continuar</button>
+      </div>
+
+      <div id="tab2" class="tab">
+        <h2>Presiona play 💖</h2>
+        <div class="iframe-wrap" style="margin:12px auto;">
+          <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2ONADYjJvqYVwjWavuY0H1?utm_source=generator" width="100%" height="352" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        </div>
+        <div style="margin-top:12px;"><button class="btn" onclick="goToTab(3)">Siguiente</button></div>
+      </div>
+       
+<div  id="tab3" class="tab">
+    <h2>Loca</h2>
+
+    <div class="mensaje-fondo">
+        <p>
+            Como dice la canción: "Me gustas así de loca e inestable y caprichosa". 
+            Me encanta toda tu existencia. Le agradezco a Diosito por ponerte en mi camino. 
+            No sabía qué era el amor hasta que llegaste tú.<br><br>
+
+            Tu existencia es algo que vale oro y es algo que agradezco y por lo cual este día 
+            es tan importante para mí, porque es un día más de existencia de esta hermosa mujer 
+            a la que amo con todo mi ser y con todas mis fuerzas. Es lo mejor tener a mi “ojos de luna” 
+            a mi lado. ¡Mi día favorito es este!<br><br>
+
+            Te amo.
+        </p>
+    </div>
+
+    <button class="btn" onclick="goToTab(4)">Siguiente</button>
+</div>
+
+<div id="tab4" class="tab">
+    <h2>Para mi cubo de hielo 💖</h2>
+
+    <div class="mensaje-fondo">
+        <p>
+            Agradezco poder compartir este día contigo, por lo menos de esta manera. 
+            Quiero acompañarte en cada meta, proyecto y anécdota de tu vida. 
+            En serio, gracias por existir. La vida es diferente a tu lado; 
+            le das ese toque especial con tu existencia.<br><br>
+
+            Hoy, 3/12/2025, quiero dejar constancia de que mi amor por ti será como 
+            una parábola simétrica y positiva, porque jamás tendrá un declive (jajaja).<br><br>
+
+            Espero que este día sea lo mejor para ti. Te acompaño y festejo desde la distancia.<br><br>
+
+            Te amo, mi linda.
+        </p>
+    </div>
+
+    <button class="btn" onclick="goToTab(5)">Siguiente</button>
+</div>
+
+      <!-- TAB 5 pastel -->
+      <div id="tab5" class="tab">
+        <div class="cake-screen">
+          <div class="cake-title">🍰 HAPPY DAY BANANA</div>
+
+          <div class="cake-wrap" id="cakeWrap">
+            <div class="cake">
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="candle"><div class="flame on"></div></div>
+              <div class="top-layer"></div>
+              <div class="middle-layer"></div>
+              <div class="bottom-layer"></div>
+            </div>
+          </div>
+
+          <div style="margin-top:10px;">
+            <button class="btn" onclick="extinguirVelas()">Apagar velas</button>
+            <button class="btn" style="margin-left:10px;" onclick="goToTab(6)">Siguiente</button>
+          </div>
+
+        </div>
+      </div>
+
+      <div id="tab6" class="tab">
+        <h1>FELIZ CUMPLEAÑOS ALE LINDA,<br>OJOS DE LUNA 🎉❤️</h1>
+        <p class="final-text">
+          Hoy no solo es tu cumpleaños, es también el día en que el universo<br>
+          tuvo la gran idea de regalarle al mundo tu presencia.<br><br>
+          Tu sonrisa, tu forma de mirar, tu forma de ser…<br>
+          han hecho que todo tenga más sentido desde que te cruzaste en mi vida. 🌌💫
+        </p>
+      </div>
+
+    </div>
   </div>
 
-  <!-- Pantalla 3 -->
-  <div class="pantalla" id="pantalla3">
-    <svg viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <radialGradient id="petalGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#fff176"/>
-          <stop offset="100%" stop-color="#fdd835"/>
-        </radialGradient>
-        <radialGradient id="centerGradient" cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stop-color="#5d4037"/>
-          <stop offset="100%" stop-color="#3e2723"/>
-        </radialGradient>
-        <linearGradient id="stemGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-          <stop offset="0%" stop-color="#66bb6a"/>
-          <stop offset="100%" stop-color="#2e7d32"/>
-        </linearGradient>
-      </defs>
+  <!-- fondo: corazones -->
+  <div class="hearts" id="hearts"></div>
 
-      <!-- Tallo -->
-      <rect x="95" y="140" width="10" height="150" rx="5" fill="url(#stemGradient)" />
+  <!-- audio -->
+  <audio id="applauseAudio" preload="auto">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2f63fd1b21.mp3?filename=applause-44763.mp3" type="audio/mp3">
+  </audio>
 
-      <!-- Hojas -->
-      <ellipse cx="70" cy="200" rx="40" ry="20" fill="#388e3c" transform="rotate(-20,70,200)" />
-      <ellipse cx="130" cy="240" rx="40" ry="20" fill="#2e7d32" transform="rotate(20,130,240)" />
+<script src="script.js"></script>
 
-      <!-- Pétalos -->
-      <g transform="translate(100,120)">
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(0) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(45) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(90) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(135) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(180) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(225) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(270) translate(0,-50)" />
-        <ellipse rx="20" ry="60" fill="url(#petalGradient)" transform="rotate(315) translate(0,-50)" />
-      </g>
-
-      <!-- Centro -->
-      <circle cx="100" cy="120" r="25" fill="url(#centerGradient)" />
-
-      <!-- Semillitas -->
-      <g fill="#ffeb3b">
-        <circle cx="90" cy="115" r="3"/>
-        <circle cx="110" cy="115" r="3"/>
-        <circle cx="95" cy="130" r="3"/>
-        <circle cx="105" cy="130" r="3"/>
-        <circle cx="100" cy="110" r="3"/>
-      </g>
-    </svg>
-  </div>
-
-  <!-- Librería confetti -->
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-  <script>
-    function mostrarPantalla(num) {
-      document.querySelectorAll('.pantalla').forEach(p => p.classList.remove('activa'));
-      let pantalla = document.getElementById('pantalla' + num);
-      pantalla.classList.add('activa');
-
-      // 🎉 confeti al llegar a la pantalla 3
-      if (num === 3) {
-        lanzarConfeti();
-      }
-    }
-
-    function lanzarConfeti() {
-      var duration = 3 * 1000;
-      var end = Date.now() + duration;
-
-      (function frame() {
-        confetti({
-          particleCount: 5,
-          angle: 60,
-          spread: 55,
-          origin: { x: 0 }
-        });
-        confetti({
-          particleCount: 5,
-          angle: 120,
-          spread: 55,
-          origin: { x: 1 }
-        });
-        if (Date.now() < end) {
-          requestAnimationFrame(frame);
-        }
-      })();
-    }
-  </script>
 </body>
 </html>
-#dd

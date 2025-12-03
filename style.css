@@ -1,0 +1,404 @@
+/* --- VARIABLES --- */
+:root{
+  --bg-top:#ffdde1;
+  --bg-bottom:#ee9ca7;
+  --accent:#ff4d6d;
+  --accent-2:#ff6b81;
+}
+
+/* --- ESTILO GENERAL --- */
+html,body{
+  height:100%; 
+  margin:0;
+  font-family:"Segoe UI", Roboto, Arial, sans-serif;
+  background:linear-gradient(to bottom,var(--bg-top),var(--bg-bottom));
+  overflow-x:hidden;
+}
+
+.app{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  box-sizing:border-box;
+}
+
+.card{
+  width:100%; 
+  max-width:980px;
+  position:relative; 
+  z-index:2;
+  color:#fff; 
+  text-align:center;
+}
+
+h1{
+  font-size:2.6rem;
+  margin:6px 0;
+  text-shadow:2px 2px 8px rgba(255,64,129,0.35);
+}
+h2{
+  font-size:1.6rem;
+  margin:6px 0;
+}
+p{
+  color:rgba(255,255,255,0.95);
+  line-height:1.45;
+}
+
+.tab{
+  display:none;
+  padding:24px 16px;
+  box-sizing:border-box;
+}
+.tab.active{
+  display:block;
+  animation:tabIn .45s ease;
+}
+
+@keyframes tabIn{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:none;}
+}
+
+.btn{
+  background:var(--accent);
+  border:none;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:12px;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 10px 28px rgba(255,77,109,0.18);
+  transition:.18s;
+}
+.btn:hover{
+  transform:translateY(-3px);
+  background:var(--accent-2);
+}
+
+/* cambiar color del texto de tab 3 */
+#tab3 p {
+  color: #ffe6f2;
+}
+
+/* --- TELÓN (cortina) --- */
+.telon{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%; 
+  height:100%;
+  background:linear-gradient(180deg,#8B0000,#C41E3A,#8B0000);
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:grab;
+  overflow:hidden;
+  transition:transform .1s ease-out;
+}
+
+.telon.arrastrando{
+  transition:none;
+  cursor:grabbing;
+}
+.telon.abierto{
+  pointer-events:none;
+  transform:translateY(100%);
+}
+
+.telon-instruccion{
+  font-size:18px;
+  margin-bottom:30px;
+  opacity:.9;
+}
+
+@keyframes flechaAbajo{
+  0%,100%{transform:translateY(0);opacity:1;}
+  50%{transform:translateY(15px);opacity:0.7;}
+}
+
+/* --- CORAZONES FLOTANTES --- */
+.hearts{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  z-index:0;
+}
+
+.heart{
+  width:20px;
+  height:20px;
+  position:absolute;
+  background:red;
+  transform:rotate(45deg);
+  animation:float 10s linear infinite;
+  opacity:0.8;
+}
+
+.heart::before,
+.heart::after{
+  content:''; 
+  width:20px;
+  height:20px;
+  background:red;
+  position:absolute;
+  border-radius:50%;
+}
+.heart::before{
+  top:-10px;
+  left:0;
+}
+.heart::after{
+  left:-10px;
+  top:0;
+}
+
+@keyframes float{
+  0%{transform:translateY(100vh) rotate(45deg);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh) rotate(45deg);opacity:0;}
+}
+
+@keyframes floatUp{
+  0%{transform:translateY(100vh) rotate(45deg);opacity:0;}
+  50%{opacity:1;}
+  100%{transform:translateY(-10vh) rotate(45deg);opacity:0;}
+}
+
+/* -------------------------------------------- */
+/* -------- PASTEL NUEVO (TU VERSIÓN) --------- */
+/* -------------------------------------------- */
+
+.cake-screen {
+  display:flex; 
+  flex-direction:column; 
+  align-items:center; 
+  justify-content:center; 
+  gap:16px;
+}
+
+.cake-title { 
+  font-size:1.6rem; 
+  color:#fff; 
+  text-shadow:0 4px 14px rgba(255,64,129,0.18); 
+  margin-top:2px; 
+}
+
+.cake-wrap {
+  width:100%;
+  position:relative;
+  margin-top:20px;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  height:300px;
+}
+
+/* CAPAS DEL PASTEL CON TEXTURA ORIGINAL */
+.bottom-layer,
+.top-layer,
+.middle-layer {
+  height:80px;
+  width:240px;
+  position:relative;
+  margin:auto;
+  background-repeat:repeat;
+  background-size:100% 100%, 60px 100px;
+  background-position:28px 0;
+  background-image:
+    linear-gradient(
+      transparent 50px,
+      #e3a953 50px,
+      #e3a953 60px,
+      transparent 60px
+    ),
+    radial-gradient(circle at 30px 5px, #713e16 30px, #eac284 31px);
+  z-index:5;
+}
+
+.middle-layer {
+  transform:scale(0.85);
+  position:absolute;
+  bottom:80px;
+}
+
+.top-layer {
+  transform:scale(0.7);
+  position:absolute;
+  bottom:143px;
+}
+
+/* VELAS ORIGINAL */
+.candle {
+  background:repeating-linear-gradient(
+    45deg,
+    #fd3018 0,
+    #fd3018 5px,
+    #ffa89e 5px,
+    #ffa89e 10px
+  );
+  height:45px;
+  width:15px;
+  position:absolute;
+  margin:auto;
+  left:0;
+  right:0;
+  bottom:213px;
+  z-index:1;
+}
+
+.flame {
+  content:"";
+  position:absolute;
+  height:16px;
+  width:16px;
+  background-color:#ffee54;
+  border-radius:0 50% 50% 50%;
+  transform:scale(1) rotate(45deg);
+  bottom:48px;
+  left:-0.5px;
+  box-shadow:0 0 8px rgba(255,200,0,0.6);
+  transition:transform 0.4s ease, opacity 0.4s ease;
+}
+
+.flame.on { opacity:1; }
+.flame.off { transform:scale(0); opacity:0; }
+
+/* 7 VELAS POSICIONADAS EXACTAMENTE COMO EN TU CÓDIGO ORIGINAL */
+.candle:nth-child(1) {
+  left:50%;
+  transform:translateX(calc(-50% - 210px));
+  bottom:200px;
+}
+.candle:nth-child(2) {
+  left:50%;
+  transform:translateX(calc(-50% - 233px));
+  bottom:200px;
+}
+.candle:nth-child(3) {
+  left:50%;
+  transform:translateX(calc(-50% - 187px));
+  bottom:200px;
+}
+.candle:nth-child(4) {
+  left:50%;
+  transform:translateX(calc(-50% - 256px));
+  bottom:200px;
+}
+.candle:nth-child(5) {
+  left:50%;
+  transform:translateX(calc(-50% - 164px));
+  bottom:200px;
+}
+.candle:nth-child(6) {
+  left:50%;
+  transform:translateX(calc(-50% - 279px));
+  bottom:200px;
+}
+.candle:nth-child(7) {
+  left:50%;
+  transform:translateX(calc(-50% - 302px));
+  bottom:200px;
+}
+
+.cake-label {
+  margin-top:20px; 
+  font-weight:700; 
+  color:#fff; 
+  font-size:20px; 
+  z-index:7;
+  text-shadow:0 2px 8px rgba(255,64,129,0.3), 0 0 4px rgba(255,100,150,0.2);
+}
+
+/* CONFETI */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background-color: #ff0;
+  animation: fallConfetti linear forwards;
+}
+
+@keyframes fallConfetti {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* TEXTO FINAL */
+.final-text{
+  font-size:1.3rem;
+  line-height:1.6;
+  margin-top:10px;
+}
+
+.mensaje-fondo {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 18px 22px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 18px rgba(255, 80, 120, 0.25);
+  margin-top: 10px;
+}
+
+.mensaje-fondo p {
+  color: #000 !important;
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+/* ------------------------------------------------------ */
+/* NUEVO — EFECTO DE TOQUES PARA ABRIR EL REGALO 🎁 */
+/* ------------------------------------------------------ */
+
+.gift-intro {
+  text-align:center;
+  position:relative;
+}
+
+.gift-text {
+  color:#fff;
+  font-size:1.6rem;
+  font-weight:700;
+  text-shadow:2px 2px 6px rgba(0,0,0,0.4);
+  animation:pulseText 1.4s infinite ease-in-out;
+}
+
+@keyframes pulseText {
+  0% { transform:scale(1); opacity:1; }
+  50% { transform:scale(1.08); opacity:0.85; }
+  100% { transform:scale(1); opacity:1; }
+}
+
+/* Animación del toque */
+.touch-effect {
+  position:absolute;
+  width:0;
+  height:0;
+  border-radius:50%;
+  background:rgba(255,255,255,0.45);
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  opacity:0;
+  transition:width 0.25s, height 0.25s, opacity 0.35s;
+}
+
+/* Cuando explota el toque */
+.touch-effect.active {
+  width:120px;
+  height:120px;
+  opacity:1;
+}
+
+
