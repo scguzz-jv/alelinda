@@ -1,6 +1,4 @@
-/* ---------------------------------------
-   MANEJO DEL TELÓN (CORTINA)
---------------------------------------- */
+
 const telon = document.getElementById('telon');
 const heartsBg = document.querySelector('.hearts');
 let startY = 0;
@@ -126,18 +124,14 @@ document.addEventListener('touchend', () => {
   }
 });
 
-/* ---------------------------------------
-   NAVEGACIÓN DE TABS
---------------------------------------- */
+
 function goToTab(n) {
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   const dest = document.getElementById('tab' + n);
   if (dest) dest.classList.add('active');
 }
 
-/* ---------------------------------------
-   CORAZONES FLOTANTES (LOS QUE SE MUEVEN)
---------------------------------------- */
+
 const heartsContainer = document.getElementById('hearts');
 
 function createHeart() {
@@ -153,9 +147,6 @@ function createHeart() {
 
 setInterval(createHeart, 200);
 
-/* ---------------------------------------
-   CORAZONES DE FONDO (YA NO ESTÁTICOS)
---------------------------------------- */
 (function makeHearts(){
   const container = document.getElementById('hearts');
   const colors = ['#ff6b81','#ff8fab','#ff4d6d'];
@@ -186,9 +177,7 @@ setInterval(createHeart, 200);
   }
 })();
 
-/* ---------------------------------------
-   APAGAR VELAS + EFECTOS
---------------------------------------- */
+
 let velasApagadas = false;
 
 function extinguirVelas() {
@@ -253,7 +242,7 @@ function reproducirAplausos(){
   }
 }
 
-/* click en pastel también apaga velas */
+
 document.addEventListener('click', function (e){
   const t5 = document.getElementById('tab5');
   if(t5 && t5.classList.contains('active')){
@@ -263,3 +252,4 @@ document.addEventListener('click', function (e){
     }
   }
 });
+
